@@ -1,0 +1,19 @@
+html{
+    /*background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png");*/
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+.pie{
+    width: 300px;
+    height: 300px;
+  }
+
+.pie li{
+    position: relative;
+    bottom:50px;
+    left:290px;
+    display:inline;
+    margin-right:10vw;
+  }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis</title>
+  <link rel="stylesheet" href="static/style.css">
+  </head>
+
+  <main>
+    <body>
+      <header>
+        <h1>Sentiment Analysis</h1>
+      </header>
+      <main>
+      <section>
+        <h3>Upload Excel</h3>
+      <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+        <input type="file" id="getFile"  name="filename">
+        <input type="submit" class="btn btn-outline-info" value="上傳">
+      </form>
+
+      <pre id="fileContent"></pre>
+      <script>
+    function submitForm() {
+      var fileInput = document.getElementById('input');
+      var fileContent = document.getElementById('fileContent');
+
+      var file = fileInput.files[0];
+
+      if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+
+        };
+
+        reader.readAsText(file);
+      } else {
+        alert('請選擇文件');
+      }
+    }
+      </script>
+      </section>
+
+      </main>
+    </body>
+    
+  </main>
+</html>
+
+  <!--
+  <img src='https://images2.alphacoders.com/134/thumbbig-1340048.jpeg' />
+  <img src='https://img.uhdpaper.com/wallpaper/heartsteel-yone-ezreal-kayn-aphelios-sett-ksante-lol-665@1@m-thumb.jpg?dl' />
+  -->

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>上傳結果</title>
+        <link rel="stylesheet" href="static/style2.css">
+    </head>
+
+    <body>
+        <section>
+            <h1>Prediction Result</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Review</th>
+                        <th>Pred</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Use loop variable for iteration -->
+                    {% for text, pred in combine_list %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ text }}</td>
+                            <td>{{ pred }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <div class="pie">
+            <canvas id="myChart" width="1" height="1"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const chartElement = document.getElementById('myChart');
+                const neg={{ num_neg }}
+                const pos={{ num_pos }}
+                new Chart(chartElement, {
+                    type: 'pie',
+                    data: {
+                        labels: ['POS', 'NEG'],
+                        datasets: [{
+                            label: 'number',
+                            data: [pos,neg],
+                        }],
+                    }
+                });
+            </script>
+            <li>Positive review = {{num_pos}}</li>
+            <li>Negative review = {{num_neg}}</li>
+            <li>Cost time= {{time}} sec</li>
+            </div>
+        </section>
+        
+
+    </body>
+
+
+
+
+
+</html>
